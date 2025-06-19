@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Bulmer:wght@400&display=swap');
+
+body {
+    font-family: 'Bulmer', serif; 
+    margin: 0;
+    padding-bottom: 70px;
+    background-color: #a0d3e8; 
+}
+
+.myNavbar {
+    background-color: rgb(0, 230, 138);
+    font-weight: bold;
+    color: white !important;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    padding: 15px 0;
+}
+
+.myNavbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+#about {
+    background-color: #a0d3e8; 
+    background-image: url(https://i.postimg.cc/q7fnWWkx/IMG-5118.jpg); 
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+}
+
+#hobbies {
+    background-color: #a0d3e8; 
+}
+
+#skills {
+    background-color: #a0d3e8;
+}
+
+#achievements {
+    background-color: #a0d3e8;
+}
+
+#contact {
+    background-color: #a0d3e8;
+}
+
+img {
+    margin-bottom: 2em;
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.hobby-item {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+
+.skill-bar {
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100%;
+    height: 20px;
+}
+
+.skill-progress {
+    background-color: #6c757d;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.achievement {
+    margin: 20px 0;
+}
+
+button {
+    background-color: white;
+    color: rgb(0, 102, 34);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(0, 230, 138);
+    color: white;
+}

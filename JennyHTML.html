@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenny's Portfolio</title>
+    <link rel="stylesheet" href="JennyCSS.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bulmer:wght@400&display=swap');
+        
+        body {
+            font-family: 'Bulmer', serif;
+            margin: 0;
+            padding-bottom: 70px;
+            background-color: #f4f4f4;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #about h1 {
+            font-size: 2.5em;
+        }
+        #about p {
+            font-size: 1.2em; 
+        }
+        h1 {
+            font-size: 2em; 
+        }
+        p {
+            font-size: 1em;
+        }
+        .hobby-item {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .hobby-images {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .hobby-images img {
+            width: 200px;
+            height: auto;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 10px;
+        }
+        .hobby-item:hover {
+            transform: translateY(-5px);
+        }
+        .hobby-images img:hover {
+            transform: scale(1.1) rotate(1deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            filter: brightness(1.05);
+        }
+        .hobby-item p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+        .skill-bar {
+            background: #f0f0f0;
+            border-radius: 5px;
+            height: 20px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+        .skill-progress {
+            background: #6c757d;
+            height: 100%;
+            border-radius: 5px;
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+        .achievement {
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 48%;
+            text-align: center;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        .achievement:hover {
+            transform: translateY(-5px);
+        }
+        .achievement img {
+            max-width: 250px;
+            height: auto;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        .achievement img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .achievement img.second {
+            max-width: 300px;
+        }
+        .myNavbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .myNavbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .myNavbar a:hover {
+            background-color: #ddd;
+            color: black;
+            transform: translateY(-3px);
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+        .social-icons img {
+            width: 30px;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        #experience {
+            background-color: #a0d3e8;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .timeline-item h3 {
+            margin: 0 0 5px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .timeline-item p {
+            margin: 5px 0;
+            color: #333;
+        }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: sectionFadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        #about { animation-delay: 0.2s; }
+        #hobbies { animation-delay: 0.4s; }
+        #skills { animation-delay: 0.6s; }
+        #experience { animation-delay: 0.8s; }
+        #achievements { animation-delay: 1.0s; }
+        #contact { animation-delay: 1.2s; }
+        
+        button {
+            background-color: white;
+            color: rgb(0, 102, 34);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: rgb(0, 230, 138);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="myNavbar">
+    <div>
+        <a href="#about">About Me</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>     
+
+<section id="about">
+    <h1>About Me</h1>
+    <p>My name is Jenny.</p>
+    <p>I am an optimistic and cheerful girl.</p>
+    <p>I like watching movies, listening to music, and taking photos.</p>
+    <p>I am one of the leaders of the school.</p>
+    <h3><strong>Education:</strong></h3>
+    <p>St. Joseph Diocesan College (The Fifth School), Macau<br>Expected graduation: July 2026</p>
+</section>
+
+<section id="hobbies">
+    <h1>Hobbies</h1>
+    <div class="hobby-images">
+        <div class="hobby-item">
+            <img src="https://i.postimg.cc/vmfg2nGq/IMG-5532.jpg" alt="Billiards">
+            <p>Drawing</p>
+        </div>
+        <div class="hobby-item">
+            <img src="https://i.postimg.cc/C10Z3K1F/IMG-5535.jpg" alt="Movies">
+            <p>Watch Movies</p>
+        </div>
+        <div class="hobby-item">
+            <img src="https://i.postimg.cc/bYBybJhs/IMG-5533.jpg" alt="Singing">
+            <p>Singing</p>
+        </div>
+        <div class="hobby-item">
+            <img src="https://i.postimg.cc/bYBybJhs/IMG-5533.jpg" alt="Photography">
+            <p>Photography</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h1>Skills</h1>
+    <div>
+        <p>English 65%</p>
+        <div class="skill-bar"><div class="skill-progress" style="width: 65%;"></div></div>
+        <p>Cantonese 95%</p>
+        <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+        <p>Mandarin 80%</p>
+        <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+        <p>Singing 60%</p>
+        <div class="skill-bar"><div class="skill-progress" style="width: 60%;"></div></div>
+        <p>Photography 70%</p>
+        <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+        <p>Drawing 70%</p>
+        <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+        <p>Portuguese 30%</p>
+        <div class="skill-bar"><div class="skill-progress" style="width: 30%;"></div></div>
+    </div>
+</section>
+
+<section id="experience">
+    <h1>Experience</h1>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>Home Tutoring (Part-time)</h3>
+            <p>February 2024 - May 2024</p>
+        </div>
+        <div class="timeline-item">
+            <h3>School Leaders</h3>
+            <p>Traffic and Discipline Section and Promotion Section</p>
+            <p>2024 – Present</p>
+        </div>
+        <div class="timeline-item">
+            <h3>School Religion Education Service Participant</h3>
+            <p>Visiting the elderly in nursing homes (2023, 2024)</p>
+        </div>
+        <div class="timeline-item">
+            <h3>Beach Volleyball Rules and Junior Referee Course</h3>
+            <p>June – July 2024</p>
+            <p>Beach volleyball junior referee qualification (2024)</p>
+        </div>
+    </div>
+</section>
+
+<section id="achievements">
+    <h1>Achievements</h1>
+    <div class="achievement">
+        <h3>Inter-school SES Mathematics and Logical Competition First Place Award</h3>
+        <p>March 2022</p>
+        <img src="https://i.postimg.cc/JnXSfT9V/IMG-5523.jpg" alt="Achievement Certificate" />
+    </div>
+    <div class="achievement">
+        <h3>Grade 10, Singapore Math Challenge</h3>
+        <p>2024</p>
+        <img class="second" src="https://i.postimg.cc/brDdfjqY/IMG-5521.jpg" alt="Achievement Certificate" />
+    </div>
+    <div class="achievement">
+        <h3>Beach Volleyball Junior Referee Qualification</h3>
+        <p>2024</p>
+        <img src="https://i.postimg.cc/5t4GtBjT/IMG-5520.jpg" alt="Achievement Certificate" />
+    </div>
+    <div class="achievement">
+        <h3>ICBC MYA Training Certificate</h3>
+        <p>2025</p>
+        <img src="https://i.postimg.cc/L56G0zFj/IMG-5524.jpg" alt="ICBC MYA Training Certificate" />
+    </div>
+    <div class="achievement">
+        <h3>Panda Travel Internship Certificate</h3>
+        <p>2024</p>
+        <img src="https://i.postimg.cc/26xPw0Mz/IMG-5522.jpg" alt="Panda Travel Internship Certificate" />
+    </div>
+    <div class="achievement">
+        <h3>Merit Award in the School Chinese Hard Pen Calligraphy Competition</h3>
+        <p>2025</p>
+        <img src="https://i.postimg.cc/VNp3HyZW/IMG-5519.jpg" alt="Merit Award" />
+    </div>
+</section>
+
+<section id="contact">
+    <h1>Contact Me</h1>
+    <p>Tel: +853 66555880</p>
+    <p>Email: <a href="mailto:jennychaoyo@gmail.com" style="color: white;">jennychaoyo@gmail.com</a></p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/share/1VB8uoPdk2/?mibextid=wwXIfr" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/chaochengiao_?igsh=MWo5eHlwenBid3dwZQ%3D%3D&utm_source=qr" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+        </a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const skillBars = document.querySelectorAll('.skill-progress');
+        skillBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 100);
+        });
+        
+        document.body.style.opacity = '1';
+    });
+</script>
+
+</body>
+</html>
